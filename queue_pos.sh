@@ -1,7 +1,6 @@
 #!/bin/bash
 
-ZNLISTCMD="zelcash-cli listzelnodes |jq -r '[.[] |{(.txhash):(.status+" "+(.version|tostring)+" "+.addr+" "+(.lastseen|tostring)+" "+(.activetime|tostring)+" "+(.lastpaid|tostring)+" "+.ipaddress)}]|add'
- 2>/dev/null"
+ZNLISTCMD="zelcash-cli listzelnodes |jq -r '[.[] |select(.tier=="BASIC") |{(.txhash):(.status+" "+(.version|tostring)+" "+.addr+" "+(.lastseen|tostring)+" "+(.activetime|tostring)+" "+(.lastpaid|tostring)+" "+.ipaddress)}]|add'"
 
 ZNADDR=$1
 
