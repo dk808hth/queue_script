@@ -1,5 +1,7 @@
 # Queue Position Script
 
+This has been tested only on Ubuntu 18.04 but should also work with 16.04.
+
 *  First install jq **`sudo apt-get install jq`** then run the script.
 ```
 sudo wget https://raw.githubusercontent.com/dk808zelnode/queue_script/master/queue_pos.sh && sudo chmod u+x queue_pos.sh && queue_pos.sh
