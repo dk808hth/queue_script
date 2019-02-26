@@ -5,14 +5,14 @@ ZNADDR=$2
 
 GREEN='\033[1;32m'
 
-echo "                                               "
+echo '                                               '
 echo -e '\033[1;34m                       #                   \033[0m   ' 
 echo -e '\033[1;34m                     #####                     \033[0m   ' 
 echo -e '\033[1;34m                   #########                   \033[0m   ' 
-echo "        __  ___            __   __   ___       "
-echo "         / |__  |    |\ | /  \ |  \ |__        "
-echo "        /_ |___ |___ | \| \__/ |__/ |___       "
-echo ""
+echo '        __  ___            __   __   ___       '
+echo '         / |__  |    |\ | /  \ |  \ |__        '
+echo '        /_ |___ |___ | \| \__/ |__/ |___       '
+echo ''
 echo -e '\033[1;34m         #   #####################   #         \033[0m   ' 
 echo -e '\033[1;34m       #####   #################   #####       \033[0m   ' 
 echo -e '\033[1;34m     #########   #############   #########     \033[0m   ' 
@@ -35,9 +35,9 @@ if [ -z $ZNTIER ]; then
     echo "usage   : $0 <tier> <zelnode address>"
     echo ""
     echo "example : $0 -basic t1cUKkWws83twyvAbj6fWEAfsvp14JDjr87"
-	echo "example : $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
-	echo "example : $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
-	echo ""
+    echo "example : $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
+    echo "example : $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
+    echo ""
     exit -1
 fi
 
@@ -47,8 +47,8 @@ if [ -z $ZNADDR ]; then
     echo "usage   : $0 <tier> <zelnode address>"
     echo ""
     echo "example : $0 -basic t1cUKkWws83twyvAbj6fWEAfsvp14JDjr87"
-	echo "example : $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
-	echo "example : $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
+    echo "example : $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
+    echo "example : $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
     echo ""
     exit -1
 fi
