@@ -9,4 +9,6 @@ sudo wget https://raw.githubusercontent.com/dk808zelnode/queue_script/master/que
 *  ./queue_pos.sh -SUPER t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911
 *  ./queue_pos.sh -BAMF t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo
 
+*Please note queue position scripts are just to give you an idea where your node should be on the queue list to give you an idea how close you are to the top 10% to start getting voted on.
+
 **Special thanks to Packetflow for helping finalize this script.**
