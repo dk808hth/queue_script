@@ -1,4 +1,12 @@
-# queue_script
-sudo wget https://raw.githubusercontent.com/dk808zelnode/queue_script/master/queue_pos.sh
+# Queue Position Script
 
-Once script is installed enter `sudo nano queue_pos.sh` and enter the path to cli in front of zelcash-cli...on line 3. Line that needs to be edited should look like this `ZNLISTCMD="zelcash-cli listzelnodes |jq -r '[.[] |select(.tier=="BASIC") |{(.txhash):(.status+" "+(.version|tostring)+" "+.addr+" "+(.lastseen|tostring)+" "+(.activetime|tostring)+" "+(.lastpaid|tostring)+" "+.ipaddress)}]|add'"` So just add `/usr/bin/` or `/usr/local/bin/` in front of zelcash-cli. Example: `ZNLISTCMD="usr/bin/zelcash-cli listzelnodes |jq -r '[.[] |select(.tier=="BASIC")....
+*  First install jq `**sudo apt-get install jq**` then run the script.
+```
+sudo wget https://raw.githubusercontent.com/dk808zelnode/queue_script/master/queue_pos.sh && sudo chmod u+x queue_pos.sh && queue_pos.sh
+```
+#### Example usage
+*  ./queue_pos.sh -BASIC t1cUKkWws83twyvAbj6fWEAfsvp14JDjr87
+*  ./queue_pos.sh -SUPER t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911
+*  ./queue_pos.sh -BAMF t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo
+
+**Special thanks to Packetflow for helping finalize this script.**
