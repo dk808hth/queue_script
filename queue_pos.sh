@@ -4,12 +4,16 @@ ZNTIER=$1
 ZNADDR=$2
 
 if [ -z $ZNTIER ]; then
+    echo ""
     echo "usage  : $0 <tier> <zelnode address>"
+    echo ""
     echo "example: $0 -basic t1cUKkWws83twyvAbj6fWEAfsvp14JDjr87"
-        echo "example: $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
-        echo "example: $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
+	echo "example: $0 -super t1U4mLtUuiSwfVFS8rHCY1nANXD5fweP911"
+	echo "example: $0 -bamf t1MK2mtU8Wuoq22Z2FsMUMN41DsrGcFxcCo"
+	echo ""
     exit -1
 fi
+
 
 
 if [ -z $ZNADDR ]; then
