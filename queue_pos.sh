@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ZNLISTCMD="zelcash-cli listzelnodes |jq -r '[.[] |select(.tier=="BASIC") |{(.txhash):(.status+" "+(.version|tostring)+" "+.addr+" "+(.lastseen|tostring)+" "+(.activetime|tostring)+" "+(.lastpaid|tostring)+" "+.ipaddress)}]|add'"
+ZNLISTCMD_TMP="`zelcash-cli listzelnodes 2>/dev/null`"
+ZNLISTCMD=`echo "$ZNLISTCMD_TMP" | jq -r '[.[] |select(.tier=="BAMF") |{(.txhash):(.status+" "+(.version|tostring)+" "+.addr+" "+(.lastseen|tostring)+" 
+"+(.activetime|tostring)+" "+(.lastpaid|tostring)+" "+.ipaddress)}]|add'`
 
 ZNADDR=$1
 
@@ -9,33 +11,7 @@ if [ -z $ZNADDR ]; then
     exit -1
 fi
 
-function _cache_command(){
-
-    # cache life in minutes
-    AGE=2
-
-    FILE=$1
-    AGE=$2
-    CMD=$3
-
-    OLD=0
-    CONTENTS=""
-    if [ -e $FILE ]; then
-        OLD=$(find $FILE -mmin +$AGE -ls | wc -l)
-        CONTENTS=$(cat $FILE);
-    fi
-    if [ -z "$CONTENTS" ] || [ "$OLD" -gt 0 ]; then
-        echo "REBUILD"
-        CONTENTS=$(eval $CMD)
-        echo "$CONTENTS" > $FILE
-    fi
-    echo "$CONTENTS"
-}
-
-
-
-ZN_LIST=$(_cache_command /tmp/cached_znlistfull 2 "$ZNLISTCMD")
-SORTED_ZN_LIST=$(echo "$ZN_LIST" | sed -e 's/[}|{]//' -e 's/"//g' -e 's/,//g' | grep -v ^$ | \
+SORTED_ZN_LIST=$(echo "$ZNLISTCMD" | sed -e 's/[}|{]//' -e 's/"//g' -e 's/,//g' | grep -v ^$ | \
 awk ' \
 {
     if ($7 == 0) {
