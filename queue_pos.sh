@@ -5,14 +5,14 @@ ZNADDR=$2
 
 GREEN='\033[1;32m'
 
-echo '                                               '
-echo -e '\033[1;34m                       #                   \033[0m   ' 
+echo '                                                                      '
+echo -e '\033[1;34m                       #                       \033[0m   ' 
 echo -e '\033[1;34m                     #####                     \033[0m   ' 
 echo -e '\033[1;34m                   #########                   \033[0m   ' 
-echo '        __  ___            __   __   ___       '
-echo '         / |__  |    |\ | /  \ |  \ |__        '
-echo '        /_ |___ |___ | \| \__/ |__/ |___       '
-echo ''
+echo '        __  ___            __   __   ___                              '
+echo '         / |__  |    |\ | /  \ |  \ |__                               '
+echo '        /_ |___ |___ | \| \__/ |__/ |___                              '
+echo '                                                                      '
 echo -e '\033[1;34m         #   #####################   #         \033[0m   ' 
 echo -e '\033[1;34m       #####   #################   #####       \033[0m   ' 
 echo -e '\033[1;34m     #########   #############   #########     \033[0m   ' 
@@ -91,6 +91,8 @@ awk ' \
 }' |  sort -k10 -n)
 
 ZN_VISIBLE=$(echo "$SORTED_ZN_LIST" | grep $ZNADDR | wc -l)
+ZN_LASTPAID=$(echo "$SORTED_ZN_LIST" | grep $ZNADDR | awk '{print $7}')
+ZN_LASTPAID=$(date -d @${ZN_LASTPAID})
 ZN_QUEUE_LENGTH=$(echo "$SORTED_ZN_LIST" | wc -l)
 ZN_QUEUE_POSITION=$(echo "$SORTED_ZN_LIST" | grep -A9999999 $ZNADDR | wc -l)
 ZN_QUEUE_IN_SELECTION=$(( $ZN_QUEUE_POSITION <= $(( $ZN_QUEUE_LENGTH / 10 )) ))
@@ -98,6 +100,7 @@ ZN_QUEUE_IN_SELECTION=$(( $ZN_QUEUE_POSITION <= $(( $ZN_QUEUE_LENGTH / 10 )) ))
 echo ""
 echo "Zelnode :" $ZNADDR
 if [ $ZN_VISIBLE -gt 0 ]; then
+    echo "Lastpaid: $ZN_LASTPAID"
     echo "Tier    : $ZNTIER"
         echo "         -> queue position $ZN_QUEUE_POSITION/$ZN_QUEUE_LENGTH"
         echo ""
